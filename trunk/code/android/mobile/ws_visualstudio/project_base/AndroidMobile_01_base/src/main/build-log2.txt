@@ -1,0 +1,105 @@
+jni/security-AES.c: In function 'Encrypt':
+jni/security-AES.c:61:28: warning: incompatible implicit declaration of built-in function 'malloc'
+         temp_in = (char *) malloc((ext + 1) * BLOCK_LENGTH);
+                            ^
+jni/security-AES.c: In function 'Decrypt':
+jni/security-AES.c:107:28: warning: incompatible implicit declaration of built-in function 'malloc'
+         temp_in = (char *) malloc((ext + 1) * BLOCK_LENGTH);
+                            ^
+jni/security-AES-JNI.c: In function 'getDecryptCharArray':
+jni/security-AES-JNI.c:128:21: warning: incompatible implicit declaration of built-in function 'malloc'
+     char *pResult = malloc(requestLength);
+                     ^
+jni/security-AES-JNI.c:137:9: warning: incompatible implicit declaration of built-in function 'free'
+         free(pResult);
+         ^
+jni/security-AES.c: In function 'Encrypt':
+jni/security-AES.c:61:28: warning: incompatible implicit declaration of built-in function 'malloc'
+         temp_in = (char *) malloc((ext + 1) * BLOCK_LENGTH);
+                            ^
+jni/security-AES.c: In function 'Decrypt':
+jni/security-AES.c:107:28: warning: incompatible implicit declaration of built-in function 'malloc'
+         temp_in = (char *) malloc((ext + 1) * BLOCK_LENGTH);
+                            ^
+jni/security-AES-JNI.c: In function 'getDecryptCharArray':
+jni/security-AES-JNI.c:128:21: warning: incompatible implicit declaration of built-in function 'malloc'
+     char *pResult = malloc(requestLength);
+                     ^
+jni/security-AES-JNI.c:137:9: warning: incompatible implicit declaration of built-in function 'free'
+         free(pResult);
+         ^
+jni/security-AES.c: In function 'Encrypt':
+jni/security-AES.c:61:28: warning: incompatible implicit declaration of built-in function 'malloc'
+         temp_in = (char *) malloc((ext + 1) * BLOCK_LENGTH);
+                            ^
+jni/security-AES.c: In function 'Decrypt':
+jni/security-AES.c:107:28: warning: incompatible implicit declaration of built-in function 'malloc'
+         temp_in = (char *) malloc((ext + 1) * BLOCK_LENGTH);
+                            ^
+jni/security-AES-JNI.c: In function 'getDecryptCharArray':
+jni/security-AES-JNI.c:128:21: warning: incompatible implicit declaration of built-in function 'malloc'
+     char *pResult = malloc(requestLength);
+                     ^
+jni/security-AES-JNI.c:137:9: warning: incompatible implicit declaration of built-in function 'free'
+         free(pResult);
+         ^
+jni/security-AES.c: In function 'Encrypt':
+jni/security-AES.c:61:28: warning: incompatible implicit declaration of built-in function 'malloc'
+         temp_in = (char *) malloc((ext + 1) * BLOCK_LENGTH);
+                            ^
+jni/security-AES.c: In function 'Decrypt':
+jni/security-AES.c:107:28: warning: incompatible implicit declaration of built-in function 'malloc'
+         temp_in = (char *) malloc((ext + 1) * BLOCK_LENGTH);
+                            ^
+jni/security-AES-JNI.c: In function 'getDecryptCharArray':
+jni/security-AES-JNI.c:128:21: warning: incompatible implicit declaration of built-in function 'malloc'
+     char *pResult = malloc(requestLength);
+                     ^
+jni/security-AES-JNI.c:137:9: warning: incompatible implicit declaration of built-in function 'free'
+         free(pResult);
+         ^
+jni/security-AES.c: In function 'Encrypt':
+jni/security-AES.c:61:28: warning: incompatible implicit declaration of built-in function 'malloc'
+         temp_in = (char *) malloc((ext + 1) * BLOCK_LENGTH);
+                            ^
+jni/security-AES.c: In function 'Decrypt':
+jni/security-AES.c:107:28: warning: incompatible implicit declaration of built-in function 'malloc'
+         temp_in = (char *) malloc((ext + 1) * BLOCK_LENGTH);
+                            ^
+jni/security-AES-JNI.c: In function 'getDecryptCharArray':
+jni/security-AES-JNI.c:128:21: warning: incompatible implicit declaration of built-in function 'malloc'
+     char *pResult = malloc(requestLength);
+                     ^
+jni/security-AES-JNI.c:137:9: warning: incompatible implicit declaration of built-in function 'free'
+         free(pResult);
+         ^
+jni/security-AES.c: In function 'Encrypt':
+jni/security-AES.c:61:28: warning: incompatible implicit declaration of built-in function 'malloc'
+         temp_in = (char *) malloc((ext + 1) * BLOCK_LENGTH);
+                            ^
+jni/security-AES.c: In function 'Decrypt':
+jni/security-AES.c:107:28: warning: incompatible implicit declaration of built-in function 'malloc'
+         temp_in = (char *) malloc((ext + 1) * BLOCK_LENGTH);
+                            ^
+jni/security-AES-JNI.c: In function 'getDecryptCharArray':
+jni/security-AES-JNI.c:128:21: warning: incompatible implicit declaration of built-in function 'malloc'
+     char *pResult = malloc(requestLength);
+                     ^
+jni/security-AES-JNI.c:137:9: warning: incompatible implicit declaration of built-in function 'free'
+         free(pResult);
+         ^
+jni/security-AES.c: In function 'Encrypt':
+jni/security-AES.c:61:28: warning: incompatible implicit declaration of built-in function 'malloc'
+         temp_in = (char *) malloc((ext + 1) * BLOCK_LENGTH);
+                            ^
+jni/security-AES.c: In function 'Decrypt':
+jni/security-AES.c:107:28: warning: incompatible implicit declaration of built-in function 'malloc'
+         temp_in = (char *) malloc((ext + 1) * BLOCK_LENGTH);
+                            ^
+jni/security-AES-JNI.c: In function 'getDecryptCharArray':
+jni/security-AES-JNI.c:128:21: warning: incompatible implicit declaration of built-in function 'malloc'
+     char *pResult = malloc(requestLength);
+                     ^
+jni/security-AES-JNI.c:137:9: warning: incompatible implicit declaration of built-in function 'free'
+         free(pResult);
+         ^

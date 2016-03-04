@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/AndroidMobile_01_base/AndroidMobile_01_base.iml" filepath="$PROJECT_DIR$/AndroidMobile_01_base/AndroidMobile_01_base.iml" />
+      <module fileurl="file://$PROJECT_DIR$/AndroidMobile_02_test/AndroidMobile_02_test.iml" filepath="$PROJECT_DIR$/AndroidMobile_02_test/AndroidMobile_02_test.iml" />
+      <module fileurl="file://$PROJECT_DIR$/AndroidStudio.iml" filepath="$PROJECT_DIR$/AndroidStudio.iml" />
+    </modules>
+  </component>
+</project>

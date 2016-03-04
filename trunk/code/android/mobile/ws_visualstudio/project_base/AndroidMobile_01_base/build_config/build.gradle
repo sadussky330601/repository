@@ -1,0 +1,281 @@
+apply plugin: 'com.android.application'
+//apply plugin: 'com.android.library'
+
+
+android {
+    compileSdkVersion 19
+    buildToolsVersion '23.0.1'
+
+
+
+    defaultConfig {
+        applicationId "com.android.demo"
+        minSdkVersion 15
+        targetSdkVersion 19
+        versionCode 1
+        versionName "1.0"
+
+        // Enabling multidex support.
+//        multiDexEnabled true
+
+        //For application-specific HTTP proxy settings,
+        //set the proxy settings in the build.gradle file as required for each application module.
+//        Note: When using Android Studio, the settings in the Android Studio IDE HTTP
+//        proxy settings page override the HTTP proxy settings in the gradle.properties file.
+//        systemProp.http.proxyHost=proxy.company.com
+//        systemProp.http.proxyPort=443
+//        systemProp.http.proxyUser=userid
+//        systemProp.http.proxyPassword=password
+//        systemProp.http.auth.ntlm.domain=domain
+
+//        ndk {
+//            moduleName "security"
+//            abiFilters "armeabi", "armeabi-v7a", "x86"
+//            cFlags "-DANDROID_NDK -D_DEBUG DNULL=0"   // Define some macros
+////            ldLibs "EGL", "GLESv3", "dl", "log"
+//        }
+    }
+
+    //Warning: Native C/C++ source code is found, but it seems that NDK option is
+    // not configured.  Note that if you have an Android.mk, it is not used for
+    // compilation.  The recommended workaround is to remove the default jni
+    // source code directory by adding:
+
+    sourceSets {
+        main {
+            jni.srcDirs = []
+//            jniLibs.srcDirs = ['libs'] //这里xxx代表一个目录
+        }
+    }
+
+    /**
+     :AndroidMobile_01_base:packageDebug
+     Error: duplicate files during packaging of APK D:\workspace\android\workspace_git\Code\Android\workspace_studio\AndroidStudio\AndroidMobile_01_base\build\outputs\apk\AndroidMobile_01_base-debug-unaligned.apk
+     Path in archive: lib/arm64-v8a/libsecurity.so
+     Origin 1: D:\workspace\android\workspace_git\Code\Android\workspace_studio\AndroidStudio\AndroidMobile_01_base\library\native-libs\native-libs.jar
+     Origin 2: D:\workspace\android\workspace_git\Code\Android\workspace_studio\AndroidStudio\AndroidMobile_01_base\src\main\jniLibs\arm64-v8a\libsecurity.so
+     You can ignore those files in your build.gradle:
+     */
+
+    packagingOptions {
+        exclude 'lib/arm64-v8a/libsecurity.so'
+        exclude 'lib/armeabi/libsecurity.so'
+        exclude 'lib/armeabi-v7a/libsecurity.so'
+        exclude 'lib/mips/libsecurity.so'
+        exclude 'lib/mips64/libsecurity.so'
+        exclude 'lib/x86/libsecurity.so'
+        exclude 'lib/x86_64/libsecurity.so'
+    }
+
+
+
+    signingConfigs {
+
+        /**
+         release {storeFile file("/keystore/release.keystore")
+         storePassword "baby.release"
+         keyAlias "baby.release"
+         keyPassword "baby.release"}debug {storeFile file("/keystore/debug.keystore")
+         storePassword "android"
+         keyAlias "androiddebugkey"
+         keyPassword "android"
+
+         //To obtain these passwords from environment variables:
+         //storePassword System.getenv("KSTOREPWD")
+         //keyPassword System.getenv("KEYPWD")
+
+         // To have the build process prompt you for these passwords if you are invoking the build from the command line:
+         //           storecPassword System.console().readLine("\nKeystore password: ")
+         //           keyPassword System.console().readLine("\nKey password: ")}*/
+
+
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            //  signingConfig signingConfigs.release
+        }
+        debug {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+//            signingConfig signingConfigs.debug
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_6
+        targetCompatibility JavaVersion.VERSION_1_6
+    }
+
+
+}
+
+//----------------------------|START|----------------------------
+//----------------------------|START|----------------------------
+//----------------------------|START|----------------------------
+/**
+ * <font color='red'> Gradle sync failed: Library projects cannot set
+ * applicationId. applicationId is set to 'com.android.demo1' in default config.
+ Consult IDE log for more details (Help | Show Log) </font>
+ */
+
+/**
+ * You can easily change an existing application module to a library module by changing
+ * the plugin assignment in the build.gradle file to com.android.library.
+ apply plugin: 'com.android.library'
+ android {...}In this example, the lib module can still be built and tested independently,
+ and the build system creates an AAR package for it that you could reuse in other projects.
+
+ Note: The library settings in the app/build.gradle file will override any shared library
+ resources declared in the manifest file.
+ */
+
+/**c
+ * 1.Always use a build tools version whose major revision number is higher or equal to that of your compilation target and target SDK.
+ * 2. The defaultConfig element configures core settings and entries in the manifest file (AndroidManifest.xml)
+ * dynamically from the build system. The values in defaultConfig override those in the manifest file.
+ * The configuration specified in the defaultConfig element applies to all build variants,
+ * unless the configuration for a build variant overrides some of these values.
+ *
+ * 2.|BUILD TYPES|
+ * The buildTypes element controls how to build and package your app. By default,
+ * the build system defines two build types: debug and release. The debug build type
+ * includes debugging symbols and is signed with the debug key. The release build type
+ * is not signed by default. In this example the build file configures the release version to use ProGuard.
+ *
+ * 3. dependencies
+ * The dependencies element is outside and after the android element.
+ * This element declares the dependencies for this module. Dependencies are covered in the following sections.
+ *
+ */
+
+def class Config extends Object {
+    def public String ROOT;
+    def public String ROOT_BASE1;
+    def public String ROOT_CONFIG_PATH;
+    def public String ROOT_LIBRARY_PATH;
+    def public String ROOT_MAKEFILE_PATH;
+    def public String ROOT_KEYSTORE_PATH;
+
+    public void config(Closure c) {
+        c.delegate = this;
+        c.setResolveStrategy Closure.DELEGATE_FIRST;
+//        c.setResolveStrategy Closure.OWNER_FIRST;
+    }
+
+    @Override
+    public String toString() {
+        return "this is a test Object Config... ";
+    }
+}
+
+def nativeLibsToJar = task nativeLibsToJar(type: Zip, description: 'create a jar archive of the native libs') {
+    destinationDir file("build_library/native-libs")
+    baseName 'native-libs'
+    extension 'jar'
+    from(new File(project(':AndroidMobile_01_base').getProjectDir(), 'src/main/libs')) {
+        include '**/*.so'
+    }
+    into 'lib/'
+}
+def initConfigTask = task initConfigTask(dependsOn: nativeLibsToJar) {
+}
+def Config defConfig = new Config();
+initConfigTask << {
+    def final String ROOT = getProject().rootDir.path;
+    Project rootProject = getProject();
+    String base = project(':AndroidMobile_01_base').getProjectDir().path
+    defConfig.config {
+        ROOT_LIBRARY1 = "test for library  1 "
+        ROOT_LIBRARY2 = "test for library  2 "
+        toString();
+    }
+    def final String ROOT_BASE1 = base;
+    def final String ROOT_CONFIG_PATH = "$ROOT_BASE1" + "/build_config";
+    def final String ROOT_LIBRARY_PATH = "$ROOT_BASE1" + "/build_library/native-libs";
+    def final String ROOT_MAKEFILE_PATH = "$ROOT_BASE1" + "/build_makefile";
+    def final String ROOT_KEYSTORE_PATH = "$ROOT_BASE1" + "/build_keystore";
+    defConfig.ROOT = "$ROOT";
+    defConfig.ROOT_BASE1 = "$ROOT_BASE1";
+    defConfig.ROOT_CONFIG_PATH = "$ROOT_CONFIG_PATH";
+    defConfig.ROOT_KEYSTORE_PATH = "$ROOT_LIBRARY_PATH";
+    defConfig.ROOT_LIBRARY_PATH = "$ROOT_MAKEFILE_PATH";
+    defConfig.ROOT_MAKEFILE_PATH = "$ROOT_KEYSTORE_PATH";
+
+    println "defConfig.ROOT" + defConfig.ROOT;
+    println "defConfig.ROOT_BASE1" + defConfig.ROOT_BASE1;
+    println "defConfig.ROOT_CONFIG_PATH" + defConfig.ROOT_CONFIG_PATH;
+    println "defConfig.ROOT_KEYSTORE_PATH" + defConfig.ROOT_KEYSTORE_PATH;
+    println "defConfig.ROOT_LIBRARY_PATH" + defConfig.ROOT_LIBRARY_PATH;
+    println "defConfig.ROOT_MAKEFILE_PATH" + defConfig.ROOT_MAKEFILE_PATH;
+
+    FileCollection collection = files("$ROOT_CONFIG_PATH",
+            new File("$ROOT_LIBRARY_PATH"),
+            ["$ROOT_MAKEFILE_PATH",
+             "$ROOT_KEYSTORE_PATH"])
+    collection.each { File file ->
+        file.mkdirs()
+        new File(file, "readme.txt").write("Read me!")
+    }
+    FileTree tree = fileTree(dir: 'src', includes: ['**/*.java', '**/*.xml'], exclude: '**/*test*/**')
+    tree.each { File file ->
+        println file
+    }
+
+
+//    def docs = file("$ROOT_CONFIG_PATH")
+//    docs.mkdirs()
+//    new File(docs, "readme.txt").write("Read me!")
+//    def docs2 = file("$ROOT_CONFIG_PATH")
+//    docs2.mkdirs()
+//    new File(docs2, "readme.txt").write("Read me!")
+
+    /**
+     Set<Task> tasks = getProject().getTasksByName("preBuild", false);
+     Iterator<Project> tasks_iterator = tasks.iterator();
+     Task firstTask = tasks_iterator.next();
+     firstTask.dependsOn 'initConfigTask';
+
+     println "getProject().getRootDir().getAbsoluteName():" + getProject().rootDir.path;
+     Map<String, Project> pros = getProject().childProjects;
+     println "getProject().childProjects.size():" + pros.size;
+     for (int i = 0; i < pros.size; i++) {println pros[i].rootDir.path;}Set<Project> sets = getProject().allprojects;
+     Iterator<Project> iterator = sets.iterator();
+     Project tmpPro = null;
+     while (null != (tmpPro = iterator.next())) {println "Project:" + tmpPro.rootDir.path;}println "PROPERTIES_LIBRARY_PATH_AndroidMobile_01_base:  " + LIBRARY_PATH_AndroidMobile_01_base;
+     ConfigurationContainer configurationContainer = rootProject.getConfigurations();
+     println "ConfigurationContainer:" + configurationContainer
+     Configuration extConfigure = rootProject.getConfigurations().getByName('ext');
+     println extConfigure
+
+     println "project(':AndroidMobile_01_base').getProjectDir(): " + project(':AndroidMobile_01_base').rootDir.path;
+     String AndroidMobile_01_base = project(':AndroidMobile_01_base').rootDir.path + 'library/native-libs';
+
+     */
+}
+
+
+
+
+dependencies {
+    Set<Task> tasks = getProject().getTasksByName("preBuild", false);
+    Iterator<Project> tasks_iterator = tasks.iterator();
+    Task firstTask = tasks_iterator.next();
+    firstTask.dependsOn 'initConfigTask';
+
+    String base = project(':AndroidMobile_01_base').getProjectDir().path;
+
+    compile fileTree(dir: 'build_library/native-libs', include: ['*.jar'])
+    compile 'com.android.support:appcompat-v7:19.0.1'
+    compile 'com.android.support:multidex:1.0.0'
+
+//    compile fileTree(dir:  task(buildProperties).PROPERTIES_LIBRARY_PATH_AndroidMobile_01_base, include: 'native-libs.jar')
+//    compile fileTree(dir: 'libs', include: ['*/*.so'])
+//    compile fileTree(dir: 'jniLibs', include: ['*.so'])
+//    compile files('libs/android-support-v4.jar')
+//    compile files('libs/xxxx.jar')
+//    compile group: 'com.google.code.gson', name: 'Gson', version: '2.2.4'
+
+}
+

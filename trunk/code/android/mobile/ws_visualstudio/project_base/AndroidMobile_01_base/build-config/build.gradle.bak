@@ -1,0 +1,96 @@
+apply plugin: 'com.android.application'
+
+/**
+ * You can easily change an existing application module to a library module by changing
+ * the plugin assignment in the build.gradle file to com.android.library.
+ apply plugin: 'com.android.library'
+ android {...}
+
+ In this example, the lib module can still be built and tested independently,
+ and the build system creates an AAR package for it that you could reuse in other projects.
+
+ Note: The library settings in the app/build.gradle file will override any shared library
+  resources declared in the manifest file.
+ */
+
+
+
+
+/**c
+ *1.Always use a build tools version whose major revision number is higher or equal to that of your compilation target and target SDK.
+ *2. The defaultConfig element configures core settings and entries in the manifest file (AndroidManifest.xml)
+ * dynamically from the build system. The values in defaultConfig override those in the manifest file.
+ * The configuration specified in the defaultConfig element applies to all build variants,
+ * unless the configuration for a build variant overrides some of these values.
+ *
+ *2.|BUILD TYPES|
+ * The buildTypes element controls how to build and package your app. By default,
+ * the build system defines two build types: debug and release. The debug build type
+ * includes debugging symbols and is signed with the debug key. The release build type
+ * is not signed by default. In this example the build file configures the release version to use ProGuard.
+ *
+ *3. dependencies
+ * The dependencies element is outside and after the android element.
+ * This element declares the dependencies for this module. Dependencies are covered in the following sections.
+ *
+ */
+
+android {
+    compileSdkVersion 19
+    buildToolsVersion '23.0.1'
+
+
+    defaultConfig {
+        applicationId "com.android.demo1"
+        minSdkVersion 15
+        targetSdkVersion 19
+        versionCode 1
+        versionName "1.0"
+
+    }
+
+    signingConfigs {
+
+        /**  */
+        release {
+            storeFile file("keystore\\baby.release.keystore")
+            storePassword "baby.release"
+            keyAlias "baby.release"
+            keyPassword "baby.release"
+        }
+        debug {
+            storeFile file("keystore\\debug.keystore")
+            storePassword "android"
+            keyAlias "androiddebugkey"
+            keyPassword "android"
+
+            //To obtain these passwords from environment variables:
+            //storePassword System.getenv("KSTOREPWD")
+            //keyPassword System.getenv("KEYPWD")
+
+           // To have the build process prompt you for these passwords if you are invoking the build from the command line:
+//           storecPassword System.console().readLine("\nKeystore password: ")
+//           keyPassword System.console().readLine("\nKey password: ")
+        }
+
+
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+          //  signingConfig signingConfigs.release
+        }
+        debug {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.debug
+        }
+    }
+}
+
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+    compile 'com.android.support:appcompat-v7:19.0.1'
+}

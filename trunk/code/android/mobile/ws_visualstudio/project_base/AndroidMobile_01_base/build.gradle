@@ -1,0 +1,464 @@
+apply plugin: 'com.android.application'
+//apply plugin: 'com.android.library'
+//apply plugin: 'android'
+
+
+
+
+dependencies {
+//    compile fileTree(dir: "${project.ext.ROOT_LIBRARY_PATH}", include: 'native-libs.jar')
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+    compile 'com.android.support:appcompat-v7:19.0.1'
+    compile 'com.android.support:multidex:1.0.0'
+
+//    compile group: 'com.google.code.gson', name: 'Gson', version: '2.2.4'
+//    compile fileTree(dir:  task(buildProperties).PROPERTIES_LIBRARY_PATH_AndroidMobile_01_base, include: 'native-libs.jar')
+//    compile fileTree(dir: 'libs', include: ['*/*.so'])
+//    compile fileTree(dir: 'jniLibs', include: ['*.so'])
+//    compile files('libs/android-support-v4.jar')
+//    compile files('libs/xxxx.jar')
+//    compile group: 'com.google.code.gson', name: 'Gson', version: '2.2.4'
+
+}
+
+android {
+    compileSdkVersion 21
+    buildToolsVersion '23.0.1'
+
+
+
+    defaultConfig {
+        applicationId "com.android.demo"
+        minSdkVersion 15
+        targetSdkVersion 21
+        versionCode 1
+        versionName "1.0"
+
+        // Enabling multidex support.
+//        multiDexEnabled true
+
+        //For application-specific HTTP proxy settings,
+        //set the proxy settings in the build.gradle file as required for each application module.
+//        Note: When using Android Studio, the settings in the Android Studio IDE HTTP
+//        proxy settings page override the HTTP proxy settings in the gradle.properties file.
+//        systemProp.http.proxyHost=proxy.company.com
+//        systemProp.http.proxyPort=443
+//        systemProp.http.proxyUser=userid
+//        systemProp.http.proxyPassword=password
+//        systemProp.http.auth.ntlm.domain=domain
+
+
+
+//        ndk {
+//            moduleName "security"
+//            ldLibs "log", "z", "m"
+//            abiFilters "armeabi", "armeabi-v7a", "x86"
+//        moduleName = "native"
+//        toolchain = "clang"
+//        toolchainVersion = "3.5"
+//        // Note that CFlags has a capital C, which is inconsistent with
+//        // the naming convention of other properties.  This is a
+//        // technical limitation that will be resolved
+//        CFlags += "-DCUSTOM_DEFINE"
+//        cppFlags += "-DCUSTOM_DEFINE"
+//        ldFlags += "-L/custom/lib/path"
+//        ldLibs += "log"
+//        stl = "stlport_static"
+//        }
+
+    }
+
+    //Warning: Native C/C++ source code is found, but it seems that NDK option is
+    // not configured.  Note that if you have an Android.mk, it is not used for
+    // compilation.  The recommended workaround is to remove the default jni
+    // source code directory by adding:
+
+    sourceSets {
+        main {
+//            manifest.srcFile 'AndroidManifest.xml'
+//            java.srcDirs = ['src']
+//            resources.srcDirs = ['src']
+//            aidl.srcDirs = ['src']
+//            renderscript.srcDirs = ['src']
+//            res.srcDirs = ['res']
+//            assets.srcDirs = ['assets']
+//            jni.srcDirs = ['jni']
+//            jniLibs.srcDirs = ['libs'] //这里xxx代表一个目录
+//            jniLibs.srcDirs = ['libs'] //这里xxx代表一个目录
+              jni.srcDirs = []
+        }
+    }
+
+//    productFlavors {
+//        armv7 {
+//            versionCode Integer.parseInt("2" + defaultConfig.versionCode)
+//            ndk {
+//                abiFilter "armeabi-v7a"
+//            }
+//        }
+//        arm {
+//            versionCode Integer.parseInt("1" + defaultConfig.versionCode)
+//            ndk {
+//                abiFilter "armeabi"
+//            }
+//        }
+//        fat
+//    }
+
+    /**
+     :AndroidMobile_01_base:packageDebug
+     Error: duplicate files during packaging of APK D:\workspace\android\workspace_git\Code\Android\workspace_studio\AndroidStudio\AndroidMobile_01_base\build\outputs\apk\AndroidMobile_01_base-debug-unaligned.apk
+     Path in archive: lib/arm64-v8a/libsecurity.so
+     Origin 1: D:\workspace\android\workspace_git\Code\Android\workspace_studio\AndroidStudio\AndroidMobile_01_base\library\native-libs\native-libs.jar
+     Origin 2: D:\workspace\android\workspace_git\Code\Android\workspace_studio\AndroidStudio\AndroidMobile_01_base\src\main\jniLibs\arm64-v8a\libsecurity.so
+     You can ignore those files in your build.gradle:
+     */
+
+    /**
+     packagingOptions {exclude 'lib/arm64-v8a/libsecurity.so'
+     exclude 'lib/armeabi/libsecurity.so'
+     exclude 'lib/armeabi-v7a/libsecurity.so'
+     exclude 'lib/mips/libsecurity.so'
+     exclude 'lib/mips64/libsecurity.so'
+     exclude 'lib/x86/libsecurity.so'
+     exclude 'lib/x86_64/libsecurity.so'}*/
+
+    signingConfigs {
+
+        /**
+         release {storeFile file("/keystore/release.keystore")
+         storePassword "baby.release"
+         keyAlias "baby.release"
+         keyPassword "baby.release"}debug {storeFile file("/keystore/debug.keystore")
+         storePassword "android"
+         keyAlias "androiddebugkey"
+         keyPassword "android"
+
+         //To obtain these passwords from environment variables:
+         //storePassword System.getenv("KSTOREPWD")
+         //keyPassword System.getenv("KEYPWD")
+
+         // To have the build process prompt you for these passwords if you are invoking the build from the command line:
+         //           storecPassword System.console().readLine("\nKeystore password: ")
+         //           keyPassword System.console().readLine("\nKey password: ")}*/
+
+
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            //  signingConfig signingConfigs.release
+        }
+        debug {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+//            signingConfig signingConfigs.debug
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_6
+        targetCompatibility JavaVersion.VERSION_1_6
+    }
+
+
+}
+
+
+
+
+artifacts {
+    configurations {
+        //declaring new configuration that will be used to associate with artifacts
+        schema
+    }
+
+    task schemaJar(type: Jar) {
+        //some imaginary task that creates a jar artifact with the schema
+    }
+
+//associating the task that produces the artifact with the configuration
+    artifacts {
+        //configuration name and the task:
+        schema schemaJar
+    }
+}
+
+//----------------------------|START|----------------------------
+//----------------------------|START|----------------------------
+//----------------------------|START|----------------------------
+/**
+ * <font color='red'> Gradle sync failed: Library projects cannot set
+ * applicationId. applicationId is set to 'com.android.demo1' in default config.
+ Consult IDE log for more details (Help | Show Log) </font>
+ */
+
+/**
+ * You can easily change an existing application module to a library module by changing
+ * the plugin assignment in the build.gradle file to com.android.library.
+ apply plugin: 'com.android.library'
+ android {...}In this example, the lib module can still be built and tested independently,
+ and the build system creates an AAR package for it that you could reuse in other projects.
+
+ Note: The library settings in the app/build.gradle file will override any shared library
+ resources declared in the manifest file.
+ */
+
+/**c
+ * 1.Always use a build tools version whose major revision number is higher or equal to that of your compilation target and target SDK.
+ * 2. The defaultConfig element configures core settings and entries in the manifest file (AndroidManifest.xml)
+ * dynamically from the build system. The values in defaultConfig override those in the manifest file.
+ * The configuration specified in the defaultConfig element applies to all build variants,
+ * unless the configuration for a build variant overrides some of these values.
+ *
+ * 2.|BUILD TYPES|
+ * The buildTypes element controls how to build and package your app. By default,
+ * the build system defines two build types: debug and release. The debug build type
+ * includes debugging symbols and is signed with the debug key. The release build type
+ * is not signed by default. In this example the build file configures the release version to use ProGuard.
+ *
+ * 3. dependencies
+ * The dependencies element is outside and after the android element.
+ * This element declares the dependencies for this module. Dependencies are covered in the following sections.
+ *
+ *
+ * ------------------------------------------------------------
+ *
+ * Type of script	Delegates to instance of
+ Build script	Project
+ Init script	Gradle
+ Settings script	Settings
+ *
+ * ------------------------------------------------------------
+ * <code>
+ * task myTask
+ task myTask { configure closure }task myType << { task action }task myTask(type: SomeType)
+ task myTask(type: SomeType) { configure closure }*     </code>
+ *
+ *
+ */
+
+def class Config extends Object {
+    def public String ROOT;
+    def public String ROOT_BASE1;
+    def public String ROOT_CONFIG_PATH;
+    def public String ROOT_LIBRARY_PATH;
+    def public String ROOT_MAKEFILE_PATH;
+    def public String ROOT_KEYSTORE_PATH;
+
+    public void config(Closure c) {
+        c.delegate = this;
+        c.setResolveStrategy Closure.DELEGATE_FIRST;
+//        c.setResolveStrategy Closure.OWNER_FIRST;
+    }
+
+    @Override
+    public String toString() {
+        return "this is a test Object Config... ";
+    }
+}
+
+project.ext.ROOT = "";
+project.ext.ROOT_BASE1 = "";
+project.ext.ROOT_CONFIG_PATH = "";
+project.ext.ROOT_KEYSTORE_PATH = "";
+project.ext.ROOT_LIBRARY_PATH = "";
+project.ext.ROOT_MAKEFILE_PATH = "";
+//def nativeLibsToJarTask = task nativeLibsToJarTask([type: Zip, description: 'create a jar archive of the native libs']) {
+//    def final String LOCALTAG = "DEBUG:[2015-09-30 12:12:00]:::";
+//    println LOCALTAG + "## excute the task :" + name;
+//    println LOCALTAG + "## project.ext.ROOT_LIBRARY_PATH :" + "${project.ext.ROOT_LIBRARY_PATH}";
+//
+////    destinationDir file("$buildDir/native-libs")
+//    destinationDir file("${project.ext.ROOT_LIBRARY_PATH}")
+////    destinationDir file("build_library/native-libs")
+//    baseName 'native-libs'
+//    extension 'jar'
+//    from(new File(project(':AndroidMobile_01_base').getProjectDir(), 'src/main/libs')) {
+//        include '**/*.so'
+//    }
+//    into 'lib/'
+//}
+
+task initTask([overwrite: false, description: "This is the init Task "]) {
+
+}
+initTask << {
+    def final String LOCALTAG = "DEBUG:[2015-09-30 12:12:00]:::";
+    def final String ROOT = getProject().rootDir.path;
+    Project rootProject = getProject();
+    String base = project(':AndroidMobile_01_base').getProjectDir().path
+    def final String ROOT_BASE1 = base;
+    def final String ROOT_CONFIG_PATH = "$ROOT_BASE1" + "/build_config";
+//    def final String ROOT_LIBRARY_PATH = "$ROOT_BASE1" + "/build_library/native-libs";
+    def final String ROOT_LIBRARY_PATH = "$ROOT_BASE1" + "/build/native-libs";
+    def final String ROOT_MAKEFILE_PATH = "$ROOT_BASE1" + "/build_makefile";
+    def final String ROOT_KEYSTORE_PATH = "$ROOT_BASE1" + "/build_keystore";
+    project.ext.ROOT = "$ROOT";
+    project.ext.ROOT_BASE1 = "$ROOT_BASE1";
+    project.ext.ROOT_CONFIG_PATH = "$ROOT_CONFIG_PATH";
+    project.ext.ROOT_KEYSTORE_PATH = "$ROOT_KEYSTORE_PATH";
+    project.ext.ROOT_LIBRARY_PATH = "$ROOT_LIBRARY_PATH";
+    project.ext.ROOT_MAKEFILE_PATH = "$ROOT_MAKEFILE_PATH";
+
+    println LOCALTAG + "##ROOT:" + project.ext.ROOT;
+    println LOCALTAG + "##ROOT_BASE1:" + project.ext.ROOT_BASE1;
+    println LOCALTAG + "##ROOT_CONFIG_PATH:" + project.ext.ROOT_CONFIG_PATH;
+    println LOCALTAG + "##ROOT_KEYSTORE_PATH:" + project.ext.ROOT_KEYSTORE_PATH;
+    println LOCALTAG + "##ROOT_LIBRARY_PATH:" + project.ext.ROOT_LIBRARY_PATH;
+    println LOCALTAG + "##ROOT_MAKEFILE_PATH:" + project.ext.ROOT_MAKEFILE_PATH;
+
+    FileCollection collection = files("$ROOT_CONFIG_PATH",
+            new File("$ROOT_LIBRARY_PATH"),
+            ["$ROOT_MAKEFILE_PATH",
+             "$ROOT_KEYSTORE_PATH"])
+    collection.each { File file ->
+        file.mkdirs()
+        new File(file, "readme.txt").write("Read me!")
+    }
+//    FileTree tree = fileTree(dir: 'src', includes: ['**/*.java', '**/*.xml'], exclude: '**/*test*/**')
+//    tree.each { File file ->
+//        println file
+//    }
+
+//    dependsOn('nativeLibsToJar', 'myTask')
+//    dependsOn 'nativeLibsToJar', 'myTask'
+//    println TAG + "this task path is : " + getPath()
+//    def TEST = TAG + "this task path is test "
+//    println "$TEST"
+//    println TAG + "properties  project.path  --- " + project.path
+//    println TAG + "this task name is  --- " + name
+//    def Set<Object> set = dependsOn
+
+//    def docs = file("$ROOT_CONFIG_PATH")
+//    docs.mkdirs()
+//    new File(docs, "readme.txt").write("Read me!")
+//    def docs2 = file("$ROOT_CONFIG_PATH")
+//    docs2.mkdirs()
+//    new File(docs2, "readme.txt").write("Read me!")
+
+    /**
+     Set<Task> tasks = getProject().getTasksByName("preBuild", false);
+     Iterator<Project> tasks_iterator = tasks.iterator();
+     Task firstTask = tasks_iterator.next();
+     firstTask.dependsOn 'initConfigTask';
+
+     println "getProject().getRootDir().getAbsoluteName():" + getProject().rootDir.path;
+     Map<String, Project> pros = getProject().childProjects;
+     println "getProject().childProjects.size():" + pros.size;
+     for (int i = 0; i < pros.size; i++) {println pros[i].rootDir.path;}Set<Project> sets = getProject().allprojects;
+     Iterator<Project> iterator = sets.iterator();
+     Project tmpPro = null;
+     while (null != (tmpPro = iterator.next())) {println "Project:" + tmpPro.rootDir.path;}println "PROPERTIES_LIBRARY_PATH_AndroidMobile_01_base:  " + LIBRARY_PATH_AndroidMobile_01_base;
+     ConfigurationContainer configurationContainer = rootProject.getConfigurations();
+     println "ConfigurationContainer:" + configurationContainer
+     Configuration extConfigure = rootProject.getConfigurations().getByName('ext');
+     println extConfigure
+
+     println "project(':AndroidMobile_01_base').getProjectDir(): " + project(':AndroidMobile_01_base').rootDir.path;
+     String AndroidMobile_01_base = project(':AndroidMobile_01_base').rootDir.path + 'library/native-libs';
+
+     */
+}
+
+
+initTask << {
+    task nativeLibsToJarTask([type: Zip, description: 'create a jar archive of the native libs']) {
+        def final String LOCALTAG = "DEBUG:[2015-09-30 12:12:00]:::";
+        println LOCALTAG + "## excute the task :" + name;
+        println LOCALTAG + "## project.ext.ROOT_LIBRARY_PATH :" + "${project.ext.ROOT_LIBRARY_PATH}";
+//      destinationDir file("$buildDir/native-libs")
+        destinationDir file("${project.ext.ROOT_LIBRARY_PATH}")
+//    destinationDir file("build_library/native-libs")
+        baseName 'native-libs'
+        extension 'jar'
+        from(new File(project(':AndroidMobile_01_base').getProjectDir(), 'src/main/libs')) {
+            include '**/*.so'
+        }
+        into 'lib/'
+    }
+}
+
+configure(new java.lang.Object() {
+
+    def final static String LOCALTAG = "DEBUG:[2015-09-30 12:12:00]:::";
+
+    public void initShow(Project project) {
+//        Project project = getProject();
+        Set<Project> projects = project.getAllprojects();
+        Set<Project> subprojects = project.getSubprojects();
+        Map<Project, Set<Task>> task_map = project.getAllTasks(true);
+        if (null != projects && projects.size() > 0) {
+            println LOCALTAG + "find projects";
+            Iterator<Project> projects_iterator = projects.iterator();
+            Project tmpProject = null;
+            while (projects_iterator.hasNext()) {
+                tmpProject = projects_iterator.next();
+                println LOCALTAG + (tmpProject == null ? "" : ("name:" + tmpProject.name + "path:" + tmpProject.path));
+            }
+        } else {
+            println LOCALTAG + "not find any proejcts";
+        }
+
+        //------------------------------------------
+        if (null != subprojects && subprojects.size() > 0) {
+            Iterator<Project> subprojects_iterator = subprojects.iterator();
+            Project tmpSubproject = null;
+            while (subprojects_iterator.hasNext()) {
+                tmpSubproject = subprojects_iterator.next();
+                println LOCALTAG + (tmpSubproject == null ? "" : ("name:" + tmpSubproject.name + ",path:" + tmpSubproject.path));
+            }
+        } else {
+            println LOCALTAG + "not find any subproejcts";
+        }
+
+        //------------------------------------------
+        if (null != task_map && task_map.size() > 0) {
+            Set<Map.Entry<Project, Set<Task>>> entrySet = task_map.entrySet();
+            for (Map.Entry<Project, Set<Task>> entry : entrySet) {
+                Project key = entry.getKey();
+                Set<Task> value = entry.getValue();
+                println LOCALTAG + "------------Project:" + key.name + " |START|------------";
+                if (value != null && value.size() > 0) {
+                    Iterator<Task> tmpTaskIterator = value.iterator();
+                    Task tmpTask = null;
+                    while (tmpTaskIterator.hasNext()) {
+                        tmpTask = tmpTaskIterator.next();
+                        println LOCALTAG + "TASK:  " + (tmpTask == null ? "" : ("name:" + tmpTask.name + ",path:" + tmpTask.path));
+                    }
+                }
+                println LOCALTAG + "------------Project:" + key.name + " |END|------------";
+            }
+        } else {
+            println LOCALTAG + "not find any subproejcts";
+        }
+    }
+
+    Task findTaskByName(Project project, String name) {
+        Set<Task> tasks = project.getTasksByName(name, false);
+        Iterator<Project> tasks_iterator = tasks.iterator();
+        Task firstTask = null;
+        while (null != (firstTask = tasks_iterator.next())) {
+            if (firstTask.name.equalsIgnoreCase(name)) {
+                return firstTask;
+            }
+        }
+    }
+}, {
+
+    /**Example for this ,while find 'getProject()' method, I think follow this xu
+     * 1. Object : Project
+     * 2. Object :  delegate  Object of Object when set by configure
+     */
+    initShow(getProject());
+    def findTask = findTaskByName(getProject(), "preBuild");
+    if (null != findTask)
+        findTask.dependsOn('initTask');
+
+
+})
+
+
+
+
