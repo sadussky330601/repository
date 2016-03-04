@@ -1,0 +1,22 @@
+﻿Build started 2016-3-1 14:36:57.
+     1>Project "D:\workspace\github\code\c\trunk\ws_visualstudio2013\project_c_test1\project_c_test1\project_c_test1.vcxproj" on node 2 (Build target(s)).
+     1>ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\x86_amd64\CL.exe /c /Zi /nologo /W3 /WX- /sdl /Od /D WIN32 /D _DEBUG /D _CONSOLE /D _LIB /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"x64\Debug\\" /Fd"x64\Debug\vc120.pdb" /Gd /TC /errorReport:prompt main.c test_choice.c test_guess.c test_params_transfer.c
+         test_params_transfer.c
+         test_guess.c
+         test_choice.c
+         main.c
+     1>main.c(36): warning C4013: 'system' undefined; assuming extern returning int
+     1>main.c(19): warning C4101: 'ch' : unreferenced local variable
+         Generating Code...
+       Link:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\x86_amd64\link.exe /ERRORREPORT:PROMPT /OUT:"D:\workspace\github\code\c\trunk\ws_visualstudio2013\project_c_test1\x64\Debug\project_c_test1.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"D:\workspace\github\code\c\trunk\ws_visualstudio2013\project_c_test1\x64\Debug\project_c_test1.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:\workspace\github\code\c\trunk\ws_visualstudio2013\project_c_test1\x64\Debug\project_c_test1.lib" /MACHINE:X64 x64\Debug\main.obj
+         x64\Debug\test_choice.obj
+         x64\Debug\test_guess.obj
+         x64\Debug\test_params_transfer.obj
+         project_c_test1.vcxproj -> D:\workspace\github\code\c\trunk\ws_visualstudio2013\project_c_test1\x64\Debug\project_c_test1.exe
+     1>Done Building Project "D:\workspace\github\code\c\trunk\ws_visualstudio2013\project_c_test1\project_c_test1\project_c_test1.vcxproj" (Build target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:01.71
