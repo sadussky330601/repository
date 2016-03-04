@@ -1,0 +1,22 @@
+﻿Build started 2016-3-4 12:21:02.
+     1>Project "D:\workspace\sync_github\repository\trunk\code\c++\ws_visualstudio2013\project_demo2\project_demo2\project_demo2.vcxproj" on node 2 (Build target(s)).
+     1>ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _LIB /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Yu"stdafx.h" /Fp"Debug\project_demo2.pch" /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt project_demo2.cpp
+         project_demo2.cpp
+     1>d:\workspace\sync_github\repository\trunk\code\c++\ws_visualstudio2013\project_demo2\project_demo2\project_demo2.cpp(99): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
+     1>d:\workspace\sync_github\repository\trunk\code\c++\ws_visualstudio2013\project_demo2\project_demo2\project_demo2.cpp(100): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
+     1>d:\workspace\sync_github\repository\trunk\code\c++\ws_visualstudio2013\project_demo2\project_demo2\project_demo2.cpp(101): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
+     1>d:\workspace\sync_github\repository\trunk\code\c++\ws_visualstudio2013\project_demo2\project_demo2\project_demo2.cpp(102): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
+     1>d:\workspace\sync_github\repository\trunk\code\c++\ws_visualstudio2013\project_demo2\project_demo2\project_demo2.cpp(103): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
+     1>d:\workspace\sync_github\repository\trunk\code\c++\ws_visualstudio2013\project_demo2\project_demo2\project_demo2.cpp(33): warning C4101: 'fristInt' : unreferenced local variable
+     1>d:\workspace\sync_github\repository\trunk\code\c++\ws_visualstudio2013\project_demo2\project_demo2\project_demo2.cpp(34): warning C4101: 'secondeInt' : unreferenced local variable
+       Link:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"D:\workspace\sync_github\repository\trunk\code\c++\ws_visualstudio2013\project_demo2\Debug\project_demo2.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"D:\workspace\sync_github\repository\trunk\code\c++\ws_visualstudio2013\project_demo2\Debug\project_demo2.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:\workspace\sync_github\repository\trunk\code\c++\ws_visualstudio2013\project_demo2\Debug\project_demo2.lib" /MACHINE:X86 Debug\test_format.obj
+         Debug\project_demo2.obj
+         Debug\stdafx.obj
+         project_demo2.vcxproj -> D:\workspace\sync_github\repository\trunk\code\c++\ws_visualstudio2013\project_demo2\Debug\project_demo2.exe
+     1>Done Building Project "D:\workspace\sync_github\repository\trunk\code\c++\ws_visualstudio2013\project_demo2\project_demo2\project_demo2.vcxproj" (Build target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:00.25
