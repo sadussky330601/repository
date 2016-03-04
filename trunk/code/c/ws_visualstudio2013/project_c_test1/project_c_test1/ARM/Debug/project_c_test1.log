@@ -1,0 +1,8 @@
+﻿Build started 2016-3-1 14:37:16.
+     1>Project "D:\workspace\github\code\c\trunk\ws_visualstudio2013\project_c_test1\project_c_test1\project_c_test1.vcxproj" on node 2 (Build target(s)).
+     1>C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V120\Platforms\ARM\PlatformToolsets\v120\Toolset.targets(36,5): error MSB8022: Compiling Desktop applications for the ARM platform is not supported.
+     1>Done Building Project "D:\workspace\github\code\c\trunk\ws_visualstudio2013\project_c_test1\project_c_test1\project_c_test1.vcxproj" (Build target(s)) -- FAILED.
+
+Build FAILED.
+
+Time Elapsed 00:00:00.01
