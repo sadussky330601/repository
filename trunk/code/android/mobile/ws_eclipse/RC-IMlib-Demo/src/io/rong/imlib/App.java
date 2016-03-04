@@ -5,7 +5,7 @@ import android.app.Application;
 import io.rong.imlib.message.DemoCommandNotificationMessage;
 
 /**
- * Created by Bob on 15/6/5.
+ * Created by Bob on 15/6/5.  
  */
 public class App extends Application {
 
