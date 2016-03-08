@@ -33,6 +33,9 @@
     <ClCompile Include="test_pointer.c">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="test_string.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="test_guess.h">
@@ -48,6 +51,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="test_pointer.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="test_string.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

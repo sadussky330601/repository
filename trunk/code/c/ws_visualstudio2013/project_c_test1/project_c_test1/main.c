@@ -15,6 +15,7 @@
 #include "test_choice.h"
 #include "test_array.h"
 #include "test_pointer.h"
+#include "test_string.h"
 
 
 
@@ -37,7 +38,9 @@ int main(){
 	//guess();
 	//test_choice();
 	//test_array();
-	test_pointer();
+	//test_pointer();
+
+	test_string_input();
 
 	system("pause");
 	return 0;
