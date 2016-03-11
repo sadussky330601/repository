@@ -61,4 +61,11 @@ void test_string_input(){
 }
 
 
+void test_string_output(){
+	//C 有三个用于字符串输出的函数 puts(), fputs(),和printf(); 
+
+
+}
+
+
 

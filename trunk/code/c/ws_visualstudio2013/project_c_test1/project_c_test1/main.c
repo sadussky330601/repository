@@ -39,7 +39,6 @@ int main(){
 	//test_choice();
 	//test_array();
 	//test_pointer();
-
 	test_string_input();
 
 	system("pause");
