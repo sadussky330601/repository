@@ -23,6 +23,7 @@ project_c_test1\project_c_test1\test_string.c	20	1	project_c_test1
 
 */
 #include <stdio.h>
+#include <string.h>
 
 
 #define MAX_INPUT 100 
@@ -66,6 +67,17 @@ void test_string_input(){
 
 void test_string_output(){
 	//C 有三个用于字符串输出的函数 puts(), fputs(),和printf(); 
+
+
+}
+
+
+
+void test_string_fuc(){
+
+
+	// strlen(), strcat(),strncat(),strcmp(),strncmp(),strcpy(),strncpy()
+
 
 
 }
