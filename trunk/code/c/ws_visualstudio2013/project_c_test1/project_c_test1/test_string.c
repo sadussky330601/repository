@@ -9,6 +9,9 @@
 并在这些字符后面添加'\0',然后把这个字符串交给调用的程序。它将读取
 换行符并丢弃。
 
+
+2. 
+
 Error	
 1	error C4996: 'gets': This function or variable may be unsafe.
 Consider using gets_s instead. To disable deprecation, 
